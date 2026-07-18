@@ -24,9 +24,13 @@ export const ExtraFeatures = () => {
   }
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode)
-    document.documentElement.classList.toggle('dark')
+    setIsDarkMode((prev) => {
+      const next = !prev
+      document.documentElement.classList.toggle('dark', next)
+      return next
+    })
   }
+
 
   return (
     <>

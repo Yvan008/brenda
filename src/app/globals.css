@@ -50,3 +50,15 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
+
+/* Manual dark mode toggle (used by ExtraFeatures) */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+.dark .glassmorphism {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
