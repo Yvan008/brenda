@@ -10,7 +10,8 @@ import { FAQ } from '@/components/FAQ'
 import { Contact } from '@/components/Contact'
 import { CTA } from '@/components/CTA'
 import { Footer } from '@/components/Footer'
-
+import { LanguageToggle } from '@/components/LanguageToggle'
+import { ExtraFeatures } from '@/components/ExtraFeatures'
 
 export default function Home() {
   return (
@@ -27,6 +28,8 @@ export default function Home() {
       <Contact />
       <CTA />
       <Footer />
+      <LanguageToggle />
+      <ExtraFeatures />
     </main>
 
   )
