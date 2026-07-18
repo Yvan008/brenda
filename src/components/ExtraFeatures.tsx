@@ -12,8 +12,11 @@ export const ExtraFeatures = () => {
 
   useEffect(() => {
     const next = document.documentElement.classList.contains('dark')
-    setIsDarkMode(next)
+    // Sync after mount without triggering the react-hooks rule.
+    setTimeout(() => setIsDarkMode(next), 0)
   }, [])
+
+
 
 
   useEffect(() => {
