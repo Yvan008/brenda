@@ -73,8 +73,9 @@ export const Testimonials = () => {
               </div>
 
               <p className="text-xl md:text-2xl text-gray-700 text-center mb-8 leading-relaxed font-medium">
-                "{testimonials[currentIndex].text}"
+                &ldquo;{testimonials[currentIndex].text}&rdquo;
               </p>
+
 
               <div className="text-center">
                 <p className="text-lg font-semibold text-[#4B2142] font-heading">

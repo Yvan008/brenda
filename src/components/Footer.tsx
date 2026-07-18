@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Facebook, Instagram, Mail, Phone, MapPin, MessageCircle } from 'lucide-react'
+import { Mail, Phone, MapPin, MessageCircle, Video, Share2 } from 'lucide-react'
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -37,7 +37,7 @@ export const Footer = () => {
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#C8A04D] transition-colors"
               >
-                <Facebook className="w-5 h-5" />
+                <Share2 className="w-5 h-5" />
               </a>
               <a
                 href="https://instagram.com"
@@ -45,7 +45,7 @@ export const Footer = () => {
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#C8A04D] transition-colors"
               >
-                <Instagram className="w-5 h-5" />
+                <Share2 className="w-5 h-5" />
               </a>
               <a
                 href="https://tiktok.com"
@@ -53,7 +53,7 @@ export const Footer = () => {
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#C8A04D] transition-colors"
               >
-                <MessageCircle className="w-5 h-5" />
+                <Video className="w-5 h-5" />
               </a>
             </div>
           </motion.div>
