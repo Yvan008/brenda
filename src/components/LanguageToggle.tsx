@@ -35,7 +35,7 @@ export const LanguageToggle = () => {
       type="button"
       onClick={() => setLang((prev) => (prev === 'en' ? 'rw' : 'en'))}
       aria-label="Select language"
-      className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white hover:bg-white/20 transition-colors"
+      className="fixed bottom-24 left-24 z-40 inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-[#4B2142] hover:bg-white transition-colors shadow-lg border border-gray-200"
     >
       <Globe className="w-4 h-4" />
       <span>

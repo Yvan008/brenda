@@ -11,6 +11,12 @@ export const ExtraFeatures = () => {
   const [showWhatsApp, setShowWhatsApp] = useState(false)
 
   useEffect(() => {
+    const next = document.documentElement.classList.contains('dark')
+    setIsDarkMode(next)
+  }, [])
+
+
+  useEffect(() => {
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 500)
     }
@@ -30,6 +36,7 @@ export const ExtraFeatures = () => {
       return next
     })
   }
+
 
 
   return (
