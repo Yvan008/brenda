@@ -5,8 +5,10 @@ import { motion } from 'framer-motion'
 import { MapPin, Phone, Mail, Clock, Send, MessageCircle } from 'lucide-react'
 import { Section } from './ui/section'
 import { Button } from './ui/button'
+import { useLang } from '@/lib/useLang'
 
 export const Contact = () => {
+  const { translate } = useLang()
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -44,11 +46,11 @@ Message: ${formData.message}
         transition={{ duration: 0.8 }}
         className="text-center mb-16"
       >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-[#4B2142] mb-4">
-          Contact Us
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-[#4B2142] dark:text-white mb-4">
+          {translate('contact.title')}
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Get in touch with us to start planning your perfect event
+        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          {translate('contact.description')}
         </p>
       </motion.div>
 
@@ -66,8 +68,8 @@ Message: ${formData.message}
                 <MapPin className="w-6 h-6 text-[#C8A04D]" />
               </div>
               <div>
-                <h4 className="font-semibold text-[#4B2142] mb-1">Address</h4>
-                <p className="text-gray-600">Kicukiro, Kigali, Rwanda</p>
+                <h4 className="font-semibold text-[#4B2142] dark:text-white mb-1">{translate('contact.address')}</h4>
+                <p className="text-gray-600 dark:text-gray-300">Kicukiro, Kigali, Rwanda</p>
               </div>
             </div>
 
@@ -76,8 +78,8 @@ Message: ${formData.message}
                 <Phone className="w-6 h-6 text-[#C8A04D]" />
               </div>
               <div>
-                <h4 className="font-semibold text-[#4B2142] mb-1">Phone</h4>
-                <p className="text-gray-600">0786403382</p>
+                <h4 className="font-semibold text-[#4B2142] dark:text-white mb-1">{translate('contact.phone')}</h4>
+                <p className="text-gray-600 dark:text-gray-300">0786403382</p>
                 <Button
                   variant="outline"
                   size="sm"
@@ -95,8 +97,8 @@ Message: ${formData.message}
                 <Mail className="w-6 h-6 text-[#C8A04D]" />
               </div>
               <div>
-                <h4 className="font-semibold text-[#4B2142] mb-1">Email</h4>
-                <p className="text-gray-600">Brendakayitesi0@gmail.com</p>
+                <h4 className="font-semibold text-[#4B2142] dark:text-white mb-1">{translate('contact.email')}</h4>
+                <p className="text-gray-600 dark:text-gray-300">Brendakayitesi0@gmail.com</p>
               </div>
             </div>
 
@@ -105,9 +107,9 @@ Message: ${formData.message}
                 <Clock className="w-6 h-6 text-[#C8A04D]" />
               </div>
               <div>
-                <h4 className="font-semibold text-[#4B2142] mb-1">Working Hours</h4>
-                <p className="text-gray-600">Monday – Saturday</p>
-                <p className="text-gray-600">8:00 AM – 6:00 PM</p>
+                <h4 className="font-semibold text-[#4B2142] dark:text-white mb-1">{translate('contact.hours')}</h4>
+                <p className="text-gray-600 dark:text-gray-300">Monday – Saturday</p>
+                <p className="text-gray-600 dark:text-gray-300">8:00 AM – 6:00 PM</p>
               </div>
             </div>
           </div>
@@ -133,94 +135,94 @@ Message: ${formData.message}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 shadow-lg">
+          <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
             <div className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{translate('contact.name')}</label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#C8A04D] focus:ring-2 focus:ring-[#C8A04D]/20 outline-none transition-all"
-                  placeholder="Your name"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:border-[#C8A04D] focus:ring-2 focus:ring-[#C8A04D]/20 outline-none transition-all bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                  placeholder={translate('contact.placeholders.name')}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{translate('contact.phoneLabel')}</label>
                 <input
                   type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#C8A04D] focus:ring-2 focus:ring-[#C8A04D]/20 outline-none transition-all"
-                  placeholder="Your phone number"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:border-[#C8A04D] focus:ring-2 focus:ring-[#C8A04D]/20 outline-none transition-all bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                  placeholder={translate('contact.placeholders.phone')}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{translate('contact.email')}</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#C8A04D] focus:ring-2 focus:ring-[#C8A04D]/20 outline-none transition-all"
-                  placeholder="Your email"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:border-[#C8A04D] focus:ring-2 focus:ring-[#C8A04D]/20 outline-none transition-all bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                  placeholder={translate('contact.placeholders.email')}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Event Type</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{translate('contact.eventType')}</label>
                 <select
                   name="eventType"
                   value={formData.eventType}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#C8A04D] focus:ring-2 focus:ring-[#C8A04D]/20 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:border-[#C8A04D] focus:ring-2 focus:ring-[#C8A04D]/20 outline-none transition-all bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                 >
-                  <option value="">Select event type</option>
-                  <option value="wedding">Wedding</option>
-                  <option value="introduction">Introduction Ceremony</option>
-                  <option value="engagement">Engagement Party</option>
-                  <option value="birthday">Birthday Celebration</option>
-                  <option value="corporate">Corporate Event</option>
-                  <option value="graduation">Graduation Ceremony</option>
-                  <option value="anniversary">Anniversary Celebration</option>
-                  <option value="other">Other</option>
+                  <option value="">{translate('contact.placeholders.selectEvent')}</option>
+                  <option value="wedding">{translate('contact.options.wedding')}</option>
+                  <option value="introduction">{translate('contact.options.introduction')}</option>
+                  <option value="engagement">{translate('contact.options.engagement')}</option>
+                  <option value="birthday">{translate('contact.options.birthday')}</option>
+                  <option value="corporate">{translate('contact.options.corporate')}</option>
+                  <option value="graduation">{translate('contact.options.graduation')}</option>
+                  <option value="anniversary">{translate('contact.options.anniversary')}</option>
+                  <option value="other">{translate('contact.placeholders.other')}</option>
                 </select>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Event Date</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{translate('contact.eventDate')}</label>
                 <input
                   type="date"
                   name="eventDate"
                   value={formData.eventDate}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#C8A04D] focus:ring-2 focus:ring-[#C8A04D]/20 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:border-[#C8A04D] focus:ring-2 focus:ring-[#C8A04D]/20 outline-none transition-all bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{translate('contact.message')}</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#C8A04D] focus:ring-2 focus:ring-[#C8A04D]/20 outline-none transition-all resize-none"
-                  placeholder="Tell us about your event"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:border-[#C8A04D] focus:ring-2 focus:ring-[#C8A04D]/20 outline-none transition-all resize-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                  placeholder={translate('contact.placeholders.message')}
                 />
               </div>
 
               <Button type="submit" className="w-full" size="lg">
                 <Send className="mr-2 w-5 h-5" />
-                Send Message
+                {translate('contact.send')}
               </Button>
             </div>
           </form>

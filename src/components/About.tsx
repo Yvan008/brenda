@@ -4,8 +4,11 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Heart, Award, Users, Target } from 'lucide-react'
 import { Section } from './ui/section'
+import Image from 'next/image'
+import { useLang } from '@/lib/useLang'
 
 export const About = () => {
+  const { translate } = useLang()
   return (
     <Section id="about" background="light">
       <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -24,15 +27,19 @@ export const About = () => {
             className="inline-flex items-center space-x-2 bg-[#C8A04D]/10 px-4 py-2 rounded-full mb-6"
           >
             <Heart className="w-4 h-4 text-[#C8A04D]" />
-            <span className="text-sm font-medium text-[#C8A04D]">About Us</span>
+ <span className="text-sm font-medium text-[#C8A04D]">{translate('about.badge')}</span>
           </motion.div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-[#4B2142] mb-6">
-            About Brenda Protocol Service
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-[#4B2142] dark:text-white mb-6">
+            {translate('about.title')}
           </h2>
 
-          <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-            Brenda Protocol Service is a trusted protocol and event coordination agency committed to delivering outstanding planning services for weddings, engagements, introductions, meetings, graduations, anniversaries, birthdays, and corporate events.
+          <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+            {translate('about.p1')}
+          </p>
+
+          <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+            {translate('about.p2')}
           </p>
 
           <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -51,8 +58,8 @@ export const About = () => {
                 <Award className="w-6 h-6 text-[#C8A04D]" />
               </div>
               <div>
-                <h4 className="font-semibold text-[#4B2142] mb-1">Excellence</h4>
-                <p className="text-sm text-gray-600">Premium quality service</p>
+                <h4 className="font-semibold text-[#4B2142] dark:text-white mb-1">{translate('about.excellence')}</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{translate('about.premium')}</p>
               </div>
             </motion.div>
 
@@ -67,8 +74,8 @@ export const About = () => {
                 <Users className="w-6 h-6 text-[#C8A04D]" />
               </div>
               <div>
-                <h4 className="font-semibold text-[#4B2142] mb-1">Professional</h4>
-                <p className="text-sm text-gray-600">Expert team members</p>
+                <h4 className="font-semibold text-[#4B2142] dark:text-white mb-1">{translate('about.professional')}</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{translate('about.expert')}</p>
               </div>
             </motion.div>
 
@@ -83,8 +90,8 @@ export const About = () => {
                 <Target className="w-6 h-6 text-[#C8A04D]" />
               </div>
               <div>
-                <h4 className="font-semibold text-[#4B2142] mb-1">Detail-Oriented</h4>
-                <p className="text-sm text-gray-600">Perfect execution</p>
+                <h4 className="font-semibold text-[#4B2142] dark:text-white mb-1">{translate('about.detail')}</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{translate('about.execution')}</p>
               </div>
             </motion.div>
 
@@ -99,8 +106,8 @@ export const About = () => {
                 <Heart className="w-6 h-6 text-[#C8A04D]" />
               </div>
               <div>
-                <h4 className="font-semibold text-[#4B2142] mb-1">Passionate</h4>
-                <p className="text-sm text-gray-600">Dedicated service</p>
+                <h4 className="font-semibold text-[#4B2142] dark:text-white mb-1">{translate('about.passionate')}</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{translate('about.dedicated')}</p>
               </div>
             </motion.div>
           </div>
@@ -116,16 +123,17 @@ export const About = () => {
         >
           <div className="relative">
             <div className="aspect-square relative rounded-3xl overflow-hidden shadow-2xl">
-              <img 
+              <Image 
                 src="/Screenshot 2026-07-18 131148.png" 
                 alt="Brenda Protocol Service Team" 
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#4B2142]/90 to-transparent flex items-end justify-center">
                 <div className="text-center p-8">
-                  <h3 className="text-3xl font-bold text-white font-heading mb-4">Our Mission</h3>
+                  <h3 className="text-3xl font-bold text-white font-heading mb-4">{translate('about.mission')}</h3>
                   <p className="text-lg text-gray-200 max-w-md mx-auto leading-relaxed">
-                    To provide exceptional protocol, planning, coordination, and event management services that create memorable experiences while maintaining professionalism and excellence.
+                    {translate('about.missionBody')}
                   </p>
                 </div>
               </div>

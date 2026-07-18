@@ -4,6 +4,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Calendar, MessageSquare, DollarSign, CheckCircle, PartyPopper, ArrowDown } from 'lucide-react'
 import { Section } from './ui/section'
+import { useLang } from '@/lib/useLang'
 
 const steps = [
   {
@@ -34,6 +35,7 @@ const steps = [
 ]
 
 export const Process = () => {
+  const { translate } = useLang()
   return (
     <Section id="process" background="white">
       <motion.div
@@ -43,11 +45,11 @@ export const Process = () => {
         transition={{ duration: 0.8 }}
         className="text-center mb-16"
       >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-[#4B2142] mb-4">
-          Our Process
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-[#4B2142] dark:text-white mb-4">
+          {translate('process.title')}
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          A simple and efficient process to bring your event vision to life
+        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          {translate('process.description')}
         </p>
       </motion.div>
 
@@ -87,12 +89,12 @@ export const Process = () => {
 
               {/* Step Content */}
               <div className="flex-1 max-w-md">
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-                  <h3 className="text-xl font-bold font-heading text-[#4B2142] mb-2">
-                    {step.title}
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                  <h3 className="text-xl font-bold font-heading text-[#4B2142] dark:text-white mb-2">
+                    {translate(`process.steps.${index}.title`)}
                   </h3>
-                  <p className="text-gray-600">
-                    {step.description}
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {translate(`process.steps.${index}.description`)}
                   </p>
                 </div>
               </div>

@@ -10,10 +10,10 @@ interface SectionProps {
 
 export const Section = ({ children, className, id, background = 'white' }: SectionProps) => {
   const backgrounds = {
-    white: 'bg-white',
-    light: 'bg-gray-50',
-    dark: 'bg-[#4B2142] text-white',
-    gradient: 'bg-gradient-to-br from-[#4B2142] to-[#2D1526] text-white'
+    white: 'bg-white dark:bg-gray-900',
+    light: 'bg-gray-50 dark:bg-gray-800',
+    dark: 'bg-[#4B2142] text-white dark:bg-[#2D1526]',
+    gradient: 'bg-gradient-to-br from-[#4B2142] to-[#2D1526] text-white dark:from-[#1a0d17] dark:to-[#0D070B]'
   }
   
   return (

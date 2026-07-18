@@ -4,10 +4,13 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Sparkles, Star } from 'lucide-react'
 import { Button } from './ui/button'
+import Image from 'next/image'
+import { useLang } from '@/lib/useLang'
 
 export const Hero = () => {
+  const { translate } = useLang()
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-gray-50 to-[#F5F0E8]">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-gray-50 to-[#F5F0E8] dark:from-gray-900 dark:via-gray-800 dark:to-[#1a1510]">
       {/* Floating Shapes */}
       <motion.div
         animate={{
@@ -68,48 +71,48 @@ export const Hero = () => {
             transition={{ duration: 0.8 }}
             className="text-center lg:text-left"
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center space-x-2 bg-[#C8A04D]/10 px-4 py-2 rounded-full mb-6"
-            >
-              <Sparkles className="w-4 h-4 text-[#C8A04D]" />
-              <span className="text-sm font-medium text-[#C8A04D]">Premium Event Services</span>
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="inline-flex items-center space-x-2 bg-[#C8A04D]/10 px-4 py-2 rounded-full mb-6"
+              >
+                <Sparkles className="w-4 h-4 text-[#C8A04D]" />
+                <span className="text-sm font-medium text-[#C8A04D]">{translate('hero.badge')}</span>
+              </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-[#4B2142] leading-tight mb-6"
-            >
-              Professional Protocol & Event Coordination Services
-            </motion.h1>
+             <motion.h1
+               initial={{ opacity: 0, y: 20 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ delay: 0.4 }}
+               className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-[#4B2142] dark:text-white leading-tight mb-6"
+             >
+               {translate('hero.title')}
+             </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0"
-            >
-              We transform your special moments into unforgettable experiences through exceptional planning, coordination, and protocol management.
-            </motion.p>
+             <motion.p
+               initial={{ opacity: 0, y: 20 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ delay: 0.6 }}
+               className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0"
+             >
+               {translate('hero.description')}
+             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-            >
-              <Button size="lg" onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                Book Consultation
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-              <Button variant="outline" size="lg" onClick={() => document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' })}>
-                View Services
-              </Button>
-            </motion.div>
+             <motion.div
+               initial={{ opacity: 0, y: 20 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ delay: 0.8 }}
+               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+             >
+               <Button size="lg" onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                 {translate('hero.cta1')}
+                 <ArrowRight className="ml-2 w-5 h-5" />
+               </Button>
+               <Button variant="outline" size="lg" onClick={() => document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' })}>
+                 {translate('hero.cta2')}
+               </Button>
+             </motion.div>
 
             <motion.div
               initial={{ opacity: 0 }}
@@ -117,20 +120,20 @@ export const Hero = () => {
               transition={{ delay: 1 }}
               className="mt-12 flex items-center justify-center lg:justify-start space-x-8"
             >
-              <div className="text-center">
-                <p className="text-3xl font-bold text-[#C8A04D] font-heading">250+</p>
-                <p className="text-sm text-gray-600">Events</p>
-              </div>
-              <div className="w-px h-12 bg-gray-300"></div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-[#C8A04D] font-heading">150+</p>
-                <p className="text-sm text-gray-600">Happy Clients</p>
-              </div>
-              <div className="w-px h-12 bg-gray-300"></div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-[#C8A04D] font-heading">5+</p>
-                <p className="text-sm text-gray-600">Years</p>
-              </div>
+               <div className="text-center">
+                 <p className="text-3xl font-bold text-[#C8A04D] font-heading">250+</p>
+                 <p className="text-sm text-gray-600 dark:text-gray-400">{translate('hero.statEvents')}</p>
+               </div>
+               <div className="w-px h-12 bg-gray-300 dark:bg-gray-700"></div>
+               <div className="text-center">
+                 <p className="text-3xl font-bold text-[#C8A04D] font-heading">150+</p>
+                 <p className="text-sm text-gray-600 dark:text-gray-400">{translate('hero.statClients')}</p>
+               </div>
+               <div className="w-px h-12 bg-gray-300 dark:bg-gray-700"></div>
+               <div className="text-center">
+                 <p className="text-3xl font-bold text-[#C8A04D] font-heading">5+</p>
+                 <p className="text-sm text-gray-600 dark:text-gray-400">{translate('hero.statYears')}</p>
+               </div>
             </motion.div>
           </motion.div>
 
@@ -154,10 +157,11 @@ export const Hero = () => {
                 className="relative z-10 rounded-3xl overflow-hidden shadow-2xl"
               >
                 <div className="aspect-[4/5] relative">
-                  <img 
+                  <Image 
                     src="/Screenshot 2026-07-18 131128.png" 
                     alt="Brenda Protocol Service Event" 
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#4B2142]/80 to-transparent flex items-end justify-center">
                     <div className="text-center p-8">

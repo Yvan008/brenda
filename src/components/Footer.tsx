@@ -2,9 +2,11 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, MessageCircle, Video, Share2 } from 'lucide-react'
+import { Mail, Phone, MapPin, Video, Share2 } from 'lucide-react'
+import { useLang } from '@/lib/useLang'
 
 export const Footer = () => {
+  const { translate } = useLang()
   const currentYear = new Date().getFullYear()
 
   return (
@@ -65,7 +67,7 @@ export const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h4 className="text-lg font-bold font-heading mb-6">Quick Links</h4>
+            <h4 className="text-lg font-bold font-heading mb-6">{translate('footer.quickLinks')}</h4>
             <ul className="space-y-3">
               <li>
                 <a href="#home" className="text-gray-300 hover:text-[#C8A04D] transition-colors">Home</a>
@@ -92,7 +94,7 @@ export const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h4 className="text-lg font-bold font-heading mb-6">Services</h4>
+            <h4 className="text-lg font-bold font-heading mb-6">{translate('footer.services')}</h4>
             <ul className="space-y-3">
               <li>
                 <a href="#services" className="text-gray-300 hover:text-[#C8A04D] transition-colors">Wedding Coordination</a>
@@ -119,7 +121,7 @@ export const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h4 className="text-lg font-bold font-heading mb-6">Contact Info</h4>
+            <h4 className="text-lg font-bold font-heading mb-6">{translate('footer.contactInfo')}</h4>
             <ul className="space-y-4">
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-[#C8A04D] flex-shrink-0 mt-1" />

@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, HelpCircle } from 'lucide-react'
 import { Section } from './ui/section'
+import { useLang } from '@/lib/useLang'
 
 const faqs = [
   {
@@ -29,6 +30,7 @@ const faqs = [
 ]
 
 export const FAQ = () => {
+  const { translate } = useLang()
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   const toggleFAQ = (index: number) => {
@@ -44,15 +46,15 @@ export const FAQ = () => {
         transition={{ duration: 0.8 }}
         className="text-center mb-16"
       >
-        <div className="inline-flex items-center space-x-2 bg-[#C8A04D]/10 px-4 py-2 rounded-full mb-6">
-          <HelpCircle className="w-4 h-4 text-[#C8A04D]" />
-          <span className="text-sm font-medium text-[#C8A04D]">FAQs</span>
-        </div>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-[#4B2142] mb-4">
-          Frequently Asked Questions
+          <div className="inline-flex items-center space-x-2 bg-[#C8A04D]/10 px-4 py-2 rounded-full mb-6">
+            <HelpCircle className="w-4 h-4 text-[#C8A04D]" />
+            <span className="text-sm font-medium text-[#C8A04D]">{translate('faq.badge')}</span>
+          </div>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-[#4B2142] dark:text-white mb-4">
+          {translate('faq.title')}
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Find answers to common questions about our services
+        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          {translate('faq.description')}
         </p>
       </motion.div>
 
@@ -65,14 +67,14 @@ export const FAQ = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <button
-              onClick={() => toggleFAQ(index)}
-              className="w-full text-left bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100"
-            >
-              <div className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold text-[#4B2142] pr-4">
-                  {faq.question}
-                </h3>
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="w-full text-left bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100 dark:border-gray-700"
+              >
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-semibold text-[#4B2142] dark:text-white pr-4">
+                    {translate(`faq.items.${index}.question`)}
+                  </h3>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -91,9 +93,9 @@ export const FAQ = () => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <p className="pt-4 text-gray-600 leading-relaxed">
-                      {faq.answer}
-                    </p>
+                     <p className="pt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+                       {translate(`faq.items.${index}.answer`)}
+                     </p>
                   </motion.div>
                 )}
               </AnimatePresence>

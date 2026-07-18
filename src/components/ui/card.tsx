@@ -11,7 +11,7 @@ export const Card = ({ children, className, glassmorphism = false }: CardProps) 
   return (
     <div
       className={cn(
-        'rounded-2xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl',
+        'rounded-2xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700',
         glassmorphism && 'glassmorphism',
         className
       )}

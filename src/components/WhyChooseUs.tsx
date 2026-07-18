@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Users, CheckCircle, Star, Award, Clock, Heart } from 'lucide-react'
 import { Section } from './ui/section'
+import { useLang } from '@/lib/useLang'
 
 const stats = [
   { value: 250, label: 'Successful Events', suffix: '+' },
@@ -13,36 +14,12 @@ const stats = [
 ]
 
 const reasons = [
-  {
-    icon: Users,
-    title: 'Professional Team',
-    description: 'Experienced and dedicated event coordinators'
-  },
-  {
-    icon: CheckCircle,
-    title: 'Reliable Planning',
-    description: 'Trustworthy and organized event management'
-  },
-  {
-    icon: Star,
-    title: 'Attention to Detail',
-    description: 'Every detail meticulously planned and executed'
-  },
-  {
-    icon: Award,
-    title: 'Affordable Packages',
-    description: 'Competitive pricing without compromising quality'
-  },
-  {
-    icon: Heart,
-    title: 'Luxury Decorations',
-    description: 'Elegant and premium event decorations'
-  },
-  {
-    icon: Clock,
-    title: 'Excellent Customer Service',
-    description: '24/7 support and responsive communication'
-  },
+  { icon: Users },
+  { icon: CheckCircle },
+  { icon: Star },
+  { icon: Award },
+  { icon: Heart },
+  { icon: Clock },
 ]
 
 const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
@@ -93,12 +70,13 @@ const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
       <p className="text-4xl md:text-5xl font-bold text-[#C8A04D] font-heading">
         {count}{suffix}
       </p>
-      <p className="text-sm md:text-base text-gray-600 mt-2">{value === 100 ? 'Client Satisfaction' : stats.find(s => s.value === value)?.label}</p>
+      <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 mt-2">{value === 100 ? 'Client Satisfaction' : stats.find(s => s.value === value)?.label}</p>
     </div>
   )
 }
 
 export const WhyChooseUs = () => {
+  const { translate } = useLang()
   return (
     <Section id="why-us" background="gradient">
       <motion.div
@@ -109,10 +87,10 @@ export const WhyChooseUs = () => {
         className="text-center mb-16"
       >
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-white mb-4">
-          Why Choose Us
+          {translate('why.title')}
         </h2>
         <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-          We deliver exceptional event experiences with professionalism and excellence
+          {translate('why.description')}
         </p>
       </motion.div>
 
@@ -136,7 +114,7 @@ export const WhyChooseUs = () => {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {reasons.map((reason, index) => (
           <motion.div
-            key={reason.title}
+            key={index}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -147,10 +125,10 @@ export const WhyChooseUs = () => {
               <reason.icon className="w-7 h-7 text-white" />
             </div>
             <h3 className="text-xl font-bold font-heading text-white mb-2">
-              {reason.title}
+              {translate(`why.reasons.${index}.title`)}
             </h3>
-            <p className="text-gray-300">
-              {reason.description}
+            <p className="text-gray-300 dark:text-gray-400">
+              {translate(`why.reasons.${index}.description`)}
             </p>
           </motion.div>
         ))}

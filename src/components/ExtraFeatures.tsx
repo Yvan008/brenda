@@ -74,29 +74,29 @@ export const ExtraFeatures = () => {
       <div className="fixed bottom-6 right-6 z-40">
         <AnimatePresence>
           {showWhatsApp && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0, y: 20 }}
-              className="mb-4 bg-white rounded-2xl p-4 shadow-xl max-w-xs"
-            >
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
-                    <MessageCircle className="w-6 h-6 text-white" />
+              <motion.div
+                initial={{ opacity: 0, scale: 0, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0, y: 20 }}
+                className="mb-4 bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-xl max-w-xs"
+              >
+                <div className="flex items-start justify-between mb-3">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+                      <MessageCircle className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-800 dark:text-gray-200">Brenda Protocol</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">Typically replies instantly</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-semibold text-gray-800">Brenda Protocol</p>
-                    <p className="text-xs text-gray-500">Typically replies instantly</p>
-                  </div>
+                  <button onClick={() => setShowWhatsApp(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+                    <X className="w-5 h-5" />
+                  </button>
                 </div>
-                <button onClick={() => setShowWhatsApp(false)} className="text-gray-400 hover:text-gray-600">
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-              <p className="text-sm text-gray-600 mb-3">
-                Hi! 👋 How can we help you plan your perfect event?
-              </p>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                  Hi! 👋 How can we help you plan your perfect event?
+                </p>
               <Button
                 size="sm"
                 className="w-full bg-green-500 hover:bg-green-600"

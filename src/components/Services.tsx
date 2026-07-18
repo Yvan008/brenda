@@ -6,6 +6,7 @@ import { Heart, Sparkles, PartyPopper, Cake, Briefcase, GraduationCap, Wine, Arr
 import { Section } from './ui/section'
 import { Card, CardHeader, CardContent } from './ui/card'
 import { Button } from './ui/button'
+import { useLang } from '@/lib/useLang'
 
 const services = [
   {
@@ -53,6 +54,7 @@ const services = [
 ]
 
 export const Services = () => {
+  const { translate } = useLang()
   return (
     <Section id="services" background="white">
       <motion.div
@@ -62,11 +64,11 @@ export const Services = () => {
         transition={{ duration: 0.8 }}
         className="text-center mb-16"
       >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-[#4B2142] mb-4">
-          Our Services
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-[#4B2142] dark:text-white mb-4">
+          {translate('services.badge')}
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          We offer comprehensive event planning and coordination services tailored to your unique needs.
+        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          {translate('services.description')}
         </p>
       </motion.div>
 
@@ -88,18 +90,18 @@ export const Services = () => {
                 >
                   <service.icon className="w-8 h-8 text-white" />
                 </motion.div>
-                <h3 className="text-xl font-bold font-heading text-[#4B2142] mb-2 group-hover:text-[#C8A04D] transition-colors">
+                 <h3 className="text-xl font-bold font-heading text-[#4B2142] dark:text-white mb-2 group-hover:text-[#C8A04D] transition-colors">
                   {service.title}
                 </h3>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                 <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                   {service.description}
                 </p>
-                <Button variant="outline" size="sm" className="group-hover:bg-[#C8A04D] group-hover:text-white group-hover:border-[#C8A04D] transition-all">
-                  Learn More
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
+                 <Button variant="outline" size="sm" className="group-hover:bg-[#C8A04D] group-hover:text-white group-hover:border-[#C8A04D] transition-all">
+                   {translate('services.learnMore')}
+                   <ArrowRight className="ml-2 w-4 h-4" />
+                 </Button>
               </CardContent>
             </Card>
           </motion.div>

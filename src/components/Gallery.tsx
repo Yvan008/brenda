@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { X, ZoomIn } from 'lucide-react'
 import { Section } from './ui/section'
 import { Button } from './ui/button'
+import Image from 'next/image'
+import { useLang } from '@/lib/useLang'
 
 const categories = ['All', 'Weddings', 'Introductions', 'Birthdays', 'Corporate', 'Graduations', 'Anniversaries']
 
@@ -19,6 +21,7 @@ const galleryItems = [
 ]
 
 export const Gallery = () => {
+  const { translate } = useLang()
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [selectedImage, setSelectedImage] = useState<typeof galleryItems[0] | null>(null)
 
@@ -35,11 +38,11 @@ export const Gallery = () => {
         transition={{ duration: 0.8 }}
         className="text-center mb-12"
       >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-[#4B2142] mb-4">
-          Event Gallery
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-[#4B2142] dark:text-white mb-4">
+          {translate('gallery.title')}
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Browse through our portfolio of successfully executed events
+        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          {translate('gallery.description')}
         </p>
       </motion.div>
 
@@ -52,7 +55,7 @@ export const Gallery = () => {
             className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
               selectedCategory === category
                 ? 'bg-[#C8A04D] text-white shadow-lg'
-                : 'bg-white text-gray-700 hover:bg-[#C8A04D]/10 border border-gray-200'
+                : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-[#C8A04D]/10 border border-gray-200 dark:border-gray-700'
             }`}
           >
             {category}
@@ -72,15 +75,16 @@ export const Gallery = () => {
             onClick={() => setSelectedImage(item)}
           >
             <div className="aspect-[4/5] relative">
-              <img 
+              <Image 
                 src={item.image} 
                 alt={item.title}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-center">
                 <div className="text-center text-white p-6">
                   <p className="text-sm font-medium mb-2 opacity-80">{item.category}</p>
-                  <h3 className="text-xl font-bold font-heading">{item.title}</h3>
+                  <h3 className="text-xl font-bold font-heading">{translate(`gallery.items.${item.id - 1}.title`)}</h3>
                 </div>
               </div>
             </div>
@@ -120,21 +124,22 @@ export const Gallery = () => {
               </button>
               
               <div className="aspect-video relative rounded-2xl overflow-hidden">
-                <img 
+                <Image 
                   src={selectedImage.image} 
                   alt={selectedImage.title}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-center">
                   <div className="text-center text-white p-8">
                     <p className="text-lg font-medium mb-4 opacity-80">{selectedImage.category}</p>
-                    <h3 className="text-3xl font-bold font-heading">{selectedImage.title}</h3>
+                    <h3 className="text-3xl font-bold font-heading">{translate(`gallery.items.${selectedImage.id - 1}.title`)}</h3>
                   </div>
                 </div>
               </div>
               
               <div className="mt-6 flex justify-center">
-                <Button onClick={() => setSelectedImage(null)}>Close</Button>
+                <Button onClick={() => setSelectedImage(null)}>{translate('gallery.close')}</Button>
               </div>
             </motion.div>
           </motion.div>
